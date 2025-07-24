@@ -3,7 +3,8 @@ import { Subscription } from 'src/subscription/entities/subscription.entity';
 import { Transaction } from 'src/transaction/entities/transaction.entity';
 import { UserBook } from 'src/user-book/entities/user-book.entity';
 import { Column, Entity, JoinColumn, ManyToMany, OneToMany, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
-import { Role } from 'src/user/entities/role.enum'; // make sure the enum is imported from the right place
+import { Role } from 'src/user/entities/role.enum';
+import { Review } from 'src/review/entities/review.entity';
 
 @Entity()
 export class User {
@@ -35,4 +36,7 @@ export class User {
 
   @OneToMany(() => UserBook, userBook => userBook.user)
   userBooks: UserBook[];
+
+  @OneToMany(() => Review, review => review.user)
+  reviews: Review[];
 }

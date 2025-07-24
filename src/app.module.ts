@@ -30,6 +30,8 @@ import { Subscription } from './subscription/entities/subscription.entity';
 import { User } from './user/entities/user.entity';
 import { UserBook } from './user-book/entities/user-book.entity';
 import { Transaction } from './transaction/entities/transaction.entity';
+import { ReviewModule } from './review/review.module';
+import { Review } from './review/entities/review.entity';
 
 
 @Module({
@@ -55,7 +57,8 @@ import { Transaction } from './transaction/entities/transaction.entity';
         Subscription,  
         User, 
         UserBook,
-        Transaction
+        Transaction,
+        Review
       ],
       synchronize: true
     }),
@@ -72,7 +75,8 @@ import { Transaction } from './transaction/entities/transaction.entity';
     ContentModule,
     UserBookModule,
     AuthorModule,
-    PublisherModule
+    PublisherModule,
+    ReviewModule
   ],
   controllers: [AppController],
   providers: [AppService],

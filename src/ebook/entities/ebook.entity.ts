@@ -3,6 +3,7 @@ import { Author } from "src/author/entities/author.entity";
 import { Category } from "src/category/entities/category.entity";
 import { Content } from "src/content/entities/content.entity";
 import { Publisher } from "src/publisher/entities/publisher.entity";
+import { Review } from "src/review/entities/review.entity";
 import { UserBook } from "src/user-book/entities/user-book.entity";
 import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
@@ -37,5 +38,8 @@ export class Ebook {
 
   @OneToMany(() => UserBook, ub => ub.ebook)
   userBooks: UserBook[];
+
+  @OneToMany(() => Review, review => review.ebook)
+  reviews: Review[];
 }
 
