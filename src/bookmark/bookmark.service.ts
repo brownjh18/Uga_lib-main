@@ -42,6 +42,14 @@ export class BookmarkService {
     return bookmark;
   }
 
+  async findByUser(userId: string) {
+    return this.repository.find({
+      where: { user: { userId } },
+      relations: ['ebook'],
+    });
+  }
+
+
   async update(id: number, dto: UpdateBookmarkDto) {
     const bookmark = await this.findOne(id);
     Object.assign(bookmark, dto);

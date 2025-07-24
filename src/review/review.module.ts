@@ -12,5 +12,6 @@ import { Ebook } from 'src/ebook/entities/ebook.entity';
   ],
   controllers: [ReviewController],
   providers: [ReviewService],
+  exports: [ReviewService],
 })
 export class ReviewModule {}

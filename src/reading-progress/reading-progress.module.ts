@@ -12,5 +12,6 @@ import { Ebook } from 'src/ebook/entities/ebook.entity';
   ],
   controllers: [ReadingProgressController],
   providers: [ReadingProgressService],
+  exports: [ReadingProgressService]
 })
 export class ReadingProgressModule {}

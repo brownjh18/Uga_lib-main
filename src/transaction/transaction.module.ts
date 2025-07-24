@@ -14,5 +14,6 @@ import { PaymentMode } from 'src/payment-mode/entities/payment-mode.entity';
   ],
   controllers: [TransactionController],
   providers: [TransactionService],
+  exports: [TransactionService],
 })
 export class TransactionModule {}

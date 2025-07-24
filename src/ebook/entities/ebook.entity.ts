@@ -7,6 +7,7 @@ import { Publisher } from "src/publisher/entities/publisher.entity";
 import { ReadingProgress } from "src/reading-progress/entities/reading-progress.entity";
 import { Review } from "src/review/entities/review.entity";
 import { UserBook } from "src/user-book/entities/user-book.entity";
+import { UserLibrary } from "src/user-library/entities/user-library.entity";
 import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
@@ -49,6 +50,9 @@ export class Ebook {
 
   @OneToMany(() => Bookmark, bookmark => bookmark.ebook)
   bookmarks: Bookmark[];
+
+  @OneToMany(() => UserLibrary, userLibrary => userLibrary.ebook)
+  userLibraries: UserLibrary[];
 
 }
 

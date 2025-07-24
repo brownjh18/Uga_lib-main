@@ -36,6 +36,13 @@ import { ReadingProgressModule } from './reading-progress/reading-progress.modul
 import { BookmarkModule } from './bookmark/bookmark.module';
 import { ReadingProgress } from './reading-progress/entities/reading-progress.entity';
 import { Bookmark } from './bookmark/entities/bookmark.entity';
+import { AiChatModule } from './ai_chat/ai_chat.module';
+import { ChatLog } from './ai_chat/entities/ai_chat.entity';
+import { UserLibraryModule } from './user-library/user-library.module';
+import { UserLibrary } from './user-library/entities/user-library.entity';
+import { ConfigModule } from '@nestjs/config';
+import { AuthModule } from './auth/auth.module';
+import { Auth } from './auth/entities/auth.entity';
 
 
 @Module({
@@ -64,10 +71,17 @@ import { Bookmark } from './bookmark/entities/bookmark.entity';
         Transaction,
         Review,
         ReadingProgress,
-        Bookmark
+        Bookmark,
+        ChatLog,
+        UserLibrary,
+        Auth
       ],
       synchronize: true
     }),
+    ConfigModule.forRoot({
+      isGlobal: true, // Make config available globally
+    }),
+    AuthModule,
     UserModule,
     ProfileModule,
     PaymentModeModule,
@@ -84,7 +98,9 @@ import { Bookmark } from './bookmark/entities/bookmark.entity';
     PublisherModule,
     ReviewModule,
     ReadingProgressModule,
-    BookmarkModule
+    BookmarkModule,
+    AiChatModule,
+    UserLibraryModule
   ],
   controllers: [AppController],
   providers: [AppService],

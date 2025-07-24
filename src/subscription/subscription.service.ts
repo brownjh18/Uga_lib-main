@@ -40,6 +40,14 @@ export class SubscriptionService {
     return this.subscriptionRepository.findOne({ where: { subscriptionId: id } });
   }
 
+  async findByUser(userId: string) {
+    return this.subscriptionRepository.find({
+      where: { user: { userId } },
+      relations: ['plan'],
+    });
+  }
+
+
   update(id: number, updateSubscriptionDto: UpdateSubscriptionDto) {
     return this.subscriptionRepository.update(id, updateSubscriptionDto);
   }

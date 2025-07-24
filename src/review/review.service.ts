@@ -43,6 +43,14 @@ export class ReviewService {
     });
   }
 
+  async findByUser(userId: string) {
+    return this.reviewRepository.find({
+      where: { user: { userId } },
+      relations: ['ebook'],
+    });
+  }
+
+
   async findOne(id: number): Promise<Review> {
     const review = await this.reviewRepository.findOne({
       where: { reviewId: id },

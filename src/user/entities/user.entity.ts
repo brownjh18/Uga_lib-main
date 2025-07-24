@@ -7,6 +7,7 @@ import { Role } from 'src/user/entities/role.enum';
 import { Review } from 'src/review/entities/review.entity';
 import { ReadingProgress } from 'src/reading-progress/entities/reading-progress.entity';
 import { Bookmark } from 'src/bookmark/entities/bookmark.entity';
+import { UserLibrary } from 'src/user-library/entities/user-library.entity';
 
 @Entity()
 export class User {
@@ -47,5 +48,8 @@ export class User {
 
   @OneToMany(() => Bookmark, bookmark => bookmark.user)
   bookmarks: Bookmark[];
+
+  @OneToMany(() => UserLibrary, userLibrary => userLibrary.user)
+  userLibraries: UserLibrary[];
 
 }

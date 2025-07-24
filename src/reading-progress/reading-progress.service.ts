@@ -38,6 +38,13 @@ export class ReadingProgressService {
     return progress;
   }
 
+  async findByUser(userId: string) {
+    return this.repository.find({
+      where: { user: { userId } },
+      relations: ['ebook'],
+    });
+  }
+
   async update(id: number, dto: UpdateReadingProgressDto) {
     const progress = await this.findOne(id);
     if (!progress) {

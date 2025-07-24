@@ -12,5 +12,6 @@ import { Ebook } from 'src/ebook/entities/ebook.entity';
   ],
   controllers: [BookmarkController],
   providers: [BookmarkService],
+  exports: [BookmarkService],
 })
 export class BookmarkModule {}

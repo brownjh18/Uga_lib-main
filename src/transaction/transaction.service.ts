@@ -55,6 +55,13 @@ export class TransactionService {
     return transaction;
   }
 
+  async findByUser(userId: string) {
+    return this.transactionRepository.find({
+      where: { user: { userId } },
+    });
+  }
+
+
   async update(id: number, dto: UpdateTransactionDto): Promise<Transaction> {
     const transaction = await this.transactionRepository.preload({
       transactionId: id,

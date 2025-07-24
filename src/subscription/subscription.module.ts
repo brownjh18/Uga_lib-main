@@ -12,5 +12,6 @@ import { Plan } from 'src/plan/entities/plan.entity';
   ],
   controllers: [SubscriptionController],
   providers: [SubscriptionService],
+  exports: [SubscriptionService],
 })
 export class SubscriptionModule {}

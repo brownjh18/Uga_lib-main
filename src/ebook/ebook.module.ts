@@ -14,5 +14,6 @@ import { Category } from 'src/category/entities/category.entity';
   ],
   controllers: [EbookController],
   providers: [EbookService],
+  exports: [EbookService],
 })
 export class EbookModule {}
