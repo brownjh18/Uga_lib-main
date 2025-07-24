@@ -5,6 +5,8 @@ import { UserBook } from 'src/user-book/entities/user-book.entity';
 import { Column, Entity, JoinColumn, ManyToMany, OneToMany, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { Role } from 'src/user/entities/role.enum';
 import { Review } from 'src/review/entities/review.entity';
+import { ReadingProgress } from 'src/reading-progress/entities/reading-progress.entity';
+import { Bookmark } from 'src/bookmark/entities/bookmark.entity';
 
 @Entity()
 export class User {
@@ -39,4 +41,11 @@ export class User {
 
   @OneToMany(() => Review, review => review.user)
   reviews: Review[];
+
+  @OneToMany(() => ReadingProgress, progress => progress.user)
+  readingProgress: ReadingProgress[];
+
+  @OneToMany(() => Bookmark, bookmark => bookmark.user)
+  bookmarks: Bookmark[];
+
 }

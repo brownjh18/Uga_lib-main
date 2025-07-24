@@ -32,6 +32,10 @@ import { UserBook } from './user-book/entities/user-book.entity';
 import { Transaction } from './transaction/entities/transaction.entity';
 import { ReviewModule } from './review/review.module';
 import { Review } from './review/entities/review.entity';
+import { ReadingProgressModule } from './reading-progress/reading-progress.module';
+import { BookmarkModule } from './bookmark/bookmark.module';
+import { ReadingProgress } from './reading-progress/entities/reading-progress.entity';
+import { Bookmark } from './bookmark/entities/bookmark.entity';
 
 
 @Module({
@@ -58,7 +62,9 @@ import { Review } from './review/entities/review.entity';
         User, 
         UserBook,
         Transaction,
-        Review
+        Review,
+        ReadingProgress,
+        Bookmark
       ],
       synchronize: true
     }),
@@ -76,7 +82,9 @@ import { Review } from './review/entities/review.entity';
     UserBookModule,
     AuthorModule,
     PublisherModule,
-    ReviewModule
+    ReviewModule,
+    ReadingProgressModule,
+    BookmarkModule
   ],
   controllers: [AppController],
   providers: [AppService],
